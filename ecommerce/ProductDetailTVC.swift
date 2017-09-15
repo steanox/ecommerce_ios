@@ -30,6 +30,14 @@ class ProductDetailTVC: UIViewController {
         configureTable()
 
     }
+    
+    func configureTable(){
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
 
 }
 
@@ -39,13 +47,8 @@ class ProductDetailTVC: UIViewController {
 
 extension ProductDetailTVC: UITableViewDelegate,UITableViewDataSource{
 
-    func configureTable(){
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
-    }
-    
+
+    //MARK:- DATA SOURCE
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -96,4 +99,64 @@ extension ProductDetailTVC: UITableViewDelegate,UITableViewDataSource{
             dest.pageViewDelegate = productSliderView
         }
     }
+    
+    
+    //MARK: DELEGATE METHOD
+    
+
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 3{
+            return tableView.bounds.width + 45
+        }else{
+            return UITableViewAutomaticDimension
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == 3{
+            if let cell = cell as? SuggestionTableViewCell{
+                cell.collectionView.dataSource = self
+                cell.collectionView.delegate = self
+                
+                cell.collectionView.reloadData()
+            }
+        }
+    }//end func
 }
+
+extension ProductDetailTVC:UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "suggestionCellCollection", for: indexPath) as! SuggestionCell
+
+        let products = Product.fetchData()
+        cell.image = products[indexPath.row].images?.first
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+}
+
+extension ProductDetailTVC:UICollectionViewDelegate{
+
+}
+
+extension ProductDetailTVC:UICollectionViewDelegateFlowLayout{
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout{
+            layout.minimumLineSpacing = 5.0
+            let itemWidth = (collectionView.bounds.width - 5.0) / 2
+            return CGSize(width: itemWidth, height: itemWidth)
+        }
+        
+        return CGSize.zero
+    }
+    
+}
+
+

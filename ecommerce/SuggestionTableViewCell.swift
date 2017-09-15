@@ -10,22 +10,7 @@ import UIKit
 
 class SuggestionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var collectionView: UICollectionView!{
-        didSet{
-            collectionView.dataSource = self
-        }
-    }
+    @IBOutlet weak var collectionView: UICollectionView!
 
 }
 
-extension SuggestionTableViewCell:UICollectionViewDataSource{
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-
-}

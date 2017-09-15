@@ -95,17 +95,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
+                                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="3cF-C5-hHu">
+                                            <rect key="frame" x="168" y="330" width="39" height="37"/>
+                                            <color key="pageIndicatorTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </pageControl>
                                         <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-0S-zz7">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                             <connections>
                                                 <segue destination="dsz-9N-Agk" kind="embed" identifier="showImagePage" id="xjK-0k-lda"/>
                                             </connections>
                                         </containerView>
-                                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="3cF-C5-hHu">
-                                            <rect key="frame" x="168" y="330" width="39" height="37"/>
-                                            <color key="pageIndicatorTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </pageControl>
                                     </subviews>
                                     <color key="backgroundColor" red="0.99329584836959839" green="0.98285061120986938" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -157,15 +157,15 @@
                                             <outlet property="productNameLabel" destination="j7w-eA-ENU" id="iUq-N1-BsQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productBuyButtonCell" rowHeight="55" id="jaG-Tk-ETf" customClass="ProductBuyButtonCell" customModule="ecommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="603" width="375" height="55"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productBuyButtonCell" rowHeight="100" id="jaG-Tk-ETf" customClass="ProductBuyButtonCell" customModule="ecommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="603" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jaG-Tk-ETf" id="bH4-jW-fCo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m64-zb-StS">
-                                                    <rect key="frame" x="12" y="5" width="351" height="44.5"/>
+                                                    <rect key="frame" x="12" y="20" width="351" height="59.5"/>
                                                     <color key="backgroundColor" red="0.052680708467960358" green="0.014403324574232101" blue="0.010754996910691261" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                                     <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
@@ -175,9 +175,9 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="m64-zb-StS" firstAttribute="top" secondItem="bH4-jW-fCo" secondAttribute="top" constant="5" id="64Q-22-zKM"/>
+                                                <constraint firstItem="m64-zb-StS" firstAttribute="top" secondItem="bH4-jW-fCo" secondAttribute="top" constant="20" id="64Q-22-zKM"/>
                                                 <constraint firstItem="m64-zb-StS" firstAttribute="leading" secondItem="bH4-jW-fCo" secondAttribute="leading" constant="12" id="KqK-f2-4Kb"/>
-                                                <constraint firstAttribute="bottom" secondItem="m64-zb-StS" secondAttribute="bottom" constant="5" id="gK6-jt-cMV"/>
+                                                <constraint firstAttribute="bottom" secondItem="m64-zb-StS" secondAttribute="bottom" constant="20" id="gK6-jt-cMV"/>
                                                 <constraint firstAttribute="trailing" secondItem="m64-zb-StS" secondAttribute="trailing" constant="12" id="mEO-QW-c3R"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -186,7 +186,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="showProductDetailCell" rowHeight="60" id="Kpy-jT-gk0">
-                                        <rect key="frame" x="0.0" y="658" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="703" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kpy-jT-gk0" id="KIC-tx-dqR">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
@@ -207,7 +207,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="suggestionCell" rowHeight="300" id="MCv-1i-klP" customClass="SuggestionTableViewCell" customModule="ecommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="718" width="375" height="300"/>
+                                        <rect key="frame" x="0.0" y="763" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MCv-1i-klP" id="e7U-92-660">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
